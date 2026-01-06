@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -16,29 +15,88 @@
             font-family: 'Amiri', serif;
         }
 
-        /* رأس الصفحة (الهيبة) */
+        /* القائمة الجانبية */
+        .sidebar {
+            position: fixed; right: -250px; top: 0; width: 250px; height: 100%;
+            background: #111; border-left: 1px solid #d4af37; transition: 0.3s; z-index: 1000; padding-top: 60px;
+        }
+        .sidebar a { display: block; padding: 15px; color: #d4af37; text-decoration: none; border-bottom: 1px solid #222; }
+        #menu-toggle { display: none; }
+        #menu-toggle:checked ~ .sidebar { right: 0; }
+        .menu-btn { position: fixed; top: 20px; right: 20px; background: #d4af37; color: #000; padding: 10px; z-index: 1001; cursor: pointer; }
+
         .brand-section { padding: 40px 20px; border-bottom: 2px solid #d4af37; background: rgba(0,0,0,0.5); }
-        .brand-name-en { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; color: #d4af37; letter-spacing: 5px; text-shadow: 0 0 15px rgba(212, 175, 55, 0.6); }
-        .brand-name-ar { font-size: 1.8rem; color: #fff; margin-top: 5px; display: block; }
-
-        /* الأقسام */
-        .section-title { color: #fff; font-size: 1.8rem; margin: 40px 0; border-bottom: 2px solid #d4af37; display: inline-block; padding: 0 20px 5px; }
-
+        .brand-name-en { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; color: #d4af37; letter-spacing: 5px; }
+        
         .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
 
-        /* البطاقة المهيبة */
         .card {
-            background: #111;
-            border: 1px solid #d4af37;
-            width: 280px; 
-            padding: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.9);
-            transition: 0.3s;
+            background: #111; border: 1px solid #d4af37; width: 280px; padding: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.9); transition: 0.3s;
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 0 20px #d4af37; }
+        
+        .img-box { width: 100%; height: 350px; background: #222; margin-bottom: 15px; border: 1px solid #333; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* إصلاح اختفاء الصور: وضعت لك صور عطور افتراضية فخمة تعمل دائماً */
-        .img-box { 
-            width: 100%; 
-            height: 350px; 
-            background: #222;
+        .price { font-size: 1.6rem; color: #fff; margin: 10px 0; }
+        
+        .btn { 
+            display: block; background: #d4af37; color: #000; 
+            text-decoration: none; padding: 15px; font-weight: bold; width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <label for="menu-toggle" class="menu-btn">☰ القائمة</label>
+    <input type="checkbox" id="menu-toggle">
+    
+    <div class="sidebar">
+        <a href="#swiss">العطور السويسرية</a>
+        <a href="#french">العطور الفرنسية</a>
+        <a href="#special">خيارات خاصة</a>
+    </div>
+
+    <header class="brand-section">
+        <h1 class="brand-name-en">AL MUKHTAR</h1>
+        <span style="color: #fff; font-size: 1.5rem;">مجموعة المختار للعطور</span>
+    </header>
+
+    <h2 id="swiss" style="color: #fff; border-bottom: 2px solid #d4af37; display: inline-block; padding: 10px 20px;">الأناقة السويسرية</h2>
+
+    <div class="gallery">
+        <div class="card">
+            <div class="img-box">
+                <img src="jpg1.jpg" alt="عطر سويسري 1">
+            </div>
+            <h3>سويسري رقم 1</h3>
+            <div class="price">18 دينار</div>
+            <a href="https://wa.me/962781114694?text=أريد+طلب+عطر+سويسري+رقم+1" class="btn">اطلب عبر واتساب</a>
+        </div>
+
+        <div class="card">
+            <div class="img-box">
+                <img src="jpg2.jpg" alt="عطر سويسري 2">
+            </div>
+            <h3>سويسري رقم 2</h3>
+            <div class="price">18 دينار</div>
+            <a href="https://wa.me/962781114694?text=أريد+طلب+عطر+سويسري+رقم+2" class="btn">اطلب عبر واتساب</a>
+        </div>
+    </div>
+
+    <h2 id="french" style="color: #fff; border-bottom: 2px solid #d4af37; display: inline-block; padding: 10px 20px; margin-top: 40px;">الفخامة الفرنسية</h2>
+    
+    <div class="gallery">
+        <div class="card">
+            <div class="img-box">
+                <img src="jpg3.jpg" alt="عطر فرنسي 3">
+            </div>
+            <h3>فرنسي رقم 3</h3>
+            <div class="price">18 دينار</div>
+            <a href="https://wa.me/962781114694?text=أريد+طلب+عطر+فرنسي+رقم+3" class="btn">اطلب عبر واتساب</a>
+        </div>
+    </div>
+
+</body>
+</html>
+
