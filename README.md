@@ -105,7 +105,7 @@ git remote add origin https://github.com/ahmadbakeer101-blip/almukhtar.git
         <div class="perfume-card"><h3>الإصدار 10: المختار الخاص</h3><p>التصميم الأخير الذي جمع كل التميز.</p></div>
     </div>
 
-    <a href="https://wa.me/966XXXXXXXXX" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/00962781114694" class="whatsapp-float" target="_blank">
         تواصل معنا عبر واتساب 💬
     </a>
 
