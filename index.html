@@ -7,68 +7,56 @@
     <style>
         body { 
             background-color: #0f172a;
-            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
-                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100"><text x="10" y="50" font-family="Arial" font-size="12" fill="rgba(212, 175, 55, 0.05)" transform="rotate(-20)">AL MUKHTAR</text></svg>');
+            /* خلفية تحتوي على اسم AL MUKHTAR بشكل متكرر */
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="250" height="150" viewBox="0 0 250 150"><text x="20" y="80" font-family="Arial" font-size="20" fill="rgba(212, 175, 55, 0.1)" transform="rotate(-30)">AL MUKHTAR</text></svg>');
             color: #d4af37; 
             font-family: 'Arial', sans-serif; 
-            margin: 0; padding: 20px; text-align: center;
+            margin: 0; padding: 0; text-align: center;
         }
-        .nav-shortcuts { margin: 20px 0; padding: 10px; position: sticky; top: 0; z-index: 100; background: rgba(15, 23, 42, 0.9); }
-        .nav-shortcuts a { 
-            text-decoration: none; color: #000; background: #d4af37; 
-            padding: 8px 15px; border-radius: 20px; margin: 5px; 
-            display: inline-block; font-weight: bold; font-size: 14px;
-        }
-        .section-title { margin-top: 40px; color: #fff; border-bottom: 2px solid #d4af37; display: inline-block; padding-bottom: 5px; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
-        .card { background: rgba(30, 41, 59, 0.8); border: 1px solid #d4af37; border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        .card img { width: 100%; height: 280px; object-fit: cover; border-radius: 10px; }
-        .price { color: #fff; font-size: 20px; font-weight: bold; margin: 10px 0; }
-        .btn { 
-            display: block; text-decoration: none; background: #d4af37; color: #000; 
-            padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 10px;
-        }
+
+        /* القائمة الجانبية (3 نقاط) */
+        .menu-icon { position: fixed; right: 20px; top: 20px; font-size: 30px; cursor: pointer; z-index: 1001; background: #d4af37; color: #000; padding: 5px 15px; border-radius: 5px; }
+        .sidebar { position: fixed; right: -250px; top: 0; width: 250px; height: 100%; background: #1e293b; transition: 0.3s; z-index: 1000; padding-top: 80px; box-shadow: -5px 0 15px rgba(0,0,0,0.5); }
+        .sidebar a { display: block; padding: 15px; color: #d4af37; text-decoration: none; font-size: 18px; border-bottom: 1px solid #334155; }
+        #menu-check { display: none; }
+        #menu-check:checked ~ .sidebar { right: 0; }
+
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: auto; }
+        .card { background: rgba(30, 41, 59, 0.9); border: 1px solid #d4af37; border-radius: 15px; padding: 15px; }
+        .card img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; }
+        .price { color: #fff; font-size: 22px; font-weight: bold; margin: 10px 0; }
+        .btn { display: block; text-decoration: none; background: #d4af37; color: #000; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 10px; }
+        .section-title { margin-top: 60px; color: #fff; border-bottom: 2px solid #d4af37; display: inline-block; }
     </style>
 </head>
 <body>
 
-    <h1>مجموعة المختار للعطور</h1>
+    <input type="checkbox" id="menu-check">
+    <label for="menu-check" class="menu-icon">☰</label>
 
-    <div class="nav-shortcuts">
-        <a href="#swiss">العطور السويسرية</a>
-        <a href="#french">العطور الفرنسية</a>
+    <div class="sidebar">
+        <a href="#swiss" onclick="document.getElementById('menu-check').checked=false">العطور السويسرية</a>
+        <a href="#french" onclick="document.getElementById('menu-check').checked=false">العطور الفرنسية</a>
     </div>
+
+    <header style="padding: 40px 0;">
+        <h1>مجموعة المختار للعطور</h1>
+    </header>
 
     <h2 id="swiss" class="section-title">قسم العطور السويسرية</h2>
     <div class="gallery">
-        <div class="card">
-            <img src="jpg1.jpg">
-            <h3>سويسري رقم 1</h3>
-            <p class="price">18 دينار أردني</p>
-            <a href="https://wa.me/962781114694?text=أريد طلب عطر سويسري رقم 1" class="btn">طلب عبر واتساب</a>
-        </div>
-        <div class="card">
-            <img src="jpg2.jpg">
-            <h3>سويسري رقم 2</h3>
-            <p class="price">18 دينار أردني</p>
-            <a href="https://wa.me/962781114694?text=أريد طلب عطر سويسري رقم 2" class="btn">طلب عبر واتساب</a>
-        </div>
+        <div class="card"><img src="jpg1.jpg"><h3>سويسري رقم 1</h3><p class="price">18 دينار أردني</p><a href="https://wa.me/962781114694?text=أريد طلب عطر سويسري 1" class="btn">طلب عبر واتساب</a></div>
+        <div class="card"><img src="jpg2.jpg"><h3>سويسري رقم 2</h3><p class="price">18 دينار أردني</p><a href="https://wa.me/962781114694?text=أريد طلب عطر سويسري 2" class="btn">طلب عبر واتساب</a></div>
     </div>
 
     <h2 id="french" class="section-title">قسم العطور الفرنسية</h2>
     <div class="gallery">
-        <div class="card">
-            <img src="jpg3.jpg">
-            <h3>فرنسي رقم 3</h3>
-            <p class="price">18 دينار أردني</p>
-            <a href="https://wa.me/962781114694?text=أريد طلب عطر فرنسي رقم 3" class="btn">طلب عبر واتساب</a>
-        </div>
-        <div class="card">
-            <img src="jpg4.jpg">
-            <h3>فرنسي رقم 4</h3>
-            <p class="price">18 دينار أردني</p>
-            <a href="https://wa.me/962781114694?text=أريد طلب عطر فرنسي رقم 4" class="btn">طلب عبر واتساب</a>
-        </div>
+        <div class="card"><img src="jpg3.jpg"><h3>فرنسي رقم 3</h3><p class="price">18 دينار أردني</p><a href="https://wa.me/962781114694?text=أريد طلب عطر فرنسي 3" class="btn">طلب عبر واتساب</a></div>
+        <div class="card"><img src="jpg4.jpg"><h3>فرنسي رقم 4</h3><p class="price">18 دينار أردني</p><a href="https://wa.me/962781114694?text=أريد طلب عطر فرنسي 4" class="btn">طلب عبر واتساب</a></div>
+        <div class="card"><img src="jpg5.jpg"><h3>فرنسي رقم 5</h3><p class="price">18 دينار أردني</p><a href="https://wa.me/962781114694?text=أريد طلب عطر فرنسي 5" class="btn">طلب عبر واتساب</a></div>
+        <div class="card"><img src="jpg6.jpg"><h3>فرنسي رقم 6</h3><p class="price">18 دينار أردني</p><a href="https://wa.me/962781114694?text=أريد طلب عطر فرنسي 6" class="btn">طلب عبر واتساب</a></div>
+        <div class="card"><img src="jpg10.jpg"><h3>فرنسي رقم 10</h3><p class="price">18 دينار أردني</p><a href="https://wa.me/962781114694?text=أريد طلب عطر فرنسي 10" class="btn">طلب عبر واتساب</a></div>
     </div>
 
 </body>
