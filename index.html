@@ -1,88 +1,130 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مجموعة المختار للعطور | AL MUKHTAR</title>
+    <title>مجموعة المختار للعطور</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cinzel:wght@700&display=swap');
-
-        :root {
-            --gold: #d4af37;
-            --dark-oil: #1a1c13; /* لون زيتي مستوحى من خلفية الموناليزا */
-            --deep-sea: #0a191f; /* لون البحر العميق ليلاً */
-            --sand-gold: #c5a059;
-        }
+        /* إضافة خطوط عربية وإنجليزية فخمة */
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Playfair+Display:wght@900&display=swap');
 
         body { 
-            margin: 0; padding: 0; text-align: center;
-            /* خلفية احترافية تجمع بين ملمس القماش الزيتي وألوان الشاطئ الغامضة */
-            background: radial-gradient(circle at center, rgba(44, 40, 32, 0.8) 0%, var(--deep-sea) 100%),
-                        linear-gradient(45deg, var(--dark-oil) 25%, transparent 25%) -50px 0,
-                        linear-gradient(-45deg, var(--dark-oil) 25%, transparent 25%) -50px 0,
-                        linear-gradient(45deg, transparent 75%, var(--dark-oil) 75%),
-                        linear-gradient(-45deg, transparent 75%, var(--dark-oil) 75%);
-            background-size: 100% 100%, 100px 100px;
-            background-color: #050801;
+            margin: 0; 
+            padding: 0; 
+            text-align: center;
+            /* خلفية متدرجة فخمة جداً (ألوان زيتية ملكية) */
+            background: linear-gradient(180deg, #1a1a10 0%, #0d1316 100%);
             background-attachment: fixed;
-            color: var(--sand-gold);
-            font-family: 'Aref Ruqaa', serif;
+            color: #d4af37;
+            font-family: 'Amiri', serif;
         }
 
         /* تصميم شعار المختار المهيب */
-        .brand-container {
+        .brand-section {
             padding: 60px 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            margin-bottom: 40px;
+            background: rgba(0,0,0,0.4);
+            border-bottom: 2px solid #d4af37;
+            margin-bottom: 30px;
         }
 
-        .brand-name {
-            font-family: 'Cinzel', serif; /* خط لاتيني فخم جداً */
-            font-size: 4.5rem;
+        .brand-name-en {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
             margin: 0;
-            background: linear-gradient(to bottom, #fff5d7 0%, #d4af37 50%, #85660b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.9));
-            letter-spacing: 8px;
+            color: #d4af37;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+            letter-spacing: 5px;
             font-weight: 900;
         }
 
-        .arabic-name {
-            font-size: 2.5rem;
-            color: #d4af37;
-            margin-top: -15px;
+        .brand-name-ar {
+            font-size: 2rem;
             display: block;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-top: 10px;
+            color: #fff;
+            letter-spacing: 2px;
         }
 
-        /* القائمة الجانبية */
-        .menu-icon { 
-            position: fixed; right: 20px; top: 20px; font-size: 28px; cursor: pointer; z-index: 1001; 
-            background: linear-gradient(145deg, #d4af37, #b8860b); color: #000; 
-            width: 50px; height: 50px; line-height: 50px; border-radius: 5px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+        /* البطاقات */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
         }
 
-        .sidebar { 
-            position: fixed; right: -300px; top: 0; width: 300px; height: 100%; 
-            background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(10px); 
-            transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1); z-index: 1000; padding-top: 100px; 
-            border-left: 1px solid var(--gold);
+        .card {
+            background: #161b22;
+            border: 1px solid #d4af37;
+            border-radius: 0px; /* زوايا حادة لتبدو كإطار لوحة */
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
 
-        #menu-check:checked ~ .sidebar { right: 0; }
-
-        .sidebar a { 
-            display: block; padding: 20px; color: var(--gold); text-decoration: none; 
-            font-size: 22px; border-bottom: 1px solid rgba(212, 175, 55, 0.1); 
+        .card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-bottom: 1px solid #d4af37;
         }
 
-        /* تصميم البطاقات لتبدو كإطارات متاحف */
-        .section-title { 
-            font-size: 2.2rem; color: #fff; margin: 50px 0; 
-            position: relative; display: inline-block; padding: 0 20px;
+        .section-title {
+            color: #fff;
+            font-size: 1.8rem;
+            margin: 40px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px double #d4af37;
+            display: inline-block;
         }
-        .section-
 
+        .price {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 15px 0;
+        }
+
+        .btn {
+            display: block;
+            background: #d4af37;
+            color: #000;
+            text-decoration: none;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #fff;
+        }
+
+        /* القائمة */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #d4af37;
+            color: #000;
+            padding: 10px 15px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1000;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="menu-btn">☰</button>
+
+    <header class="brand-section">
+        <h1 class="brand-name-en">AL MUKHTAR</h1>
+        <span class="brand-name-ar">مجموعة المختار للعطور</span>
+    </header>
+
+    <h2 class="section-title">الأناقة السويسرية</h2>
+
+    <div class="gallery">
